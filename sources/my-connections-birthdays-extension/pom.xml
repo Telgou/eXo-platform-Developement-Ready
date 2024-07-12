@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>addons-exo-parent-pom</artifactId>
+    <groupId>org.exoplatform.addons</groupId>
+    <version>17-M02</version>
+  </parent>
+  <groupId>tn.gamcorp.samples</groupId>
+  <artifactId>custom-extension</artifactId>
+  <version>1.0.x-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <modules>
+    <module>services</module>
+    <module>webapp</module>
+  </modules>
+  <properties>
+    <org.exoplatform.commons-exo.version>6.5.2</org.exoplatform.commons-exo.version>
+  </properties>
+
+  <repositories>
+    <repository>
+      <id>exo-public</id>
+      <url>https://repository.exoplatform.org/public</url>
+    </repository>
+  </repositories>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.exoplatform.commons-exo</groupId>
+        <artifactId>commons-exo</artifactId>
+        <version>${org.exoplatform.commons-exo.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <!-- JAX-RS API -->
+      <dependency>
+        <groupId>javax.ws.rs</groupId>
+        <artifactId>javax.ws.rs-api</artifactId>
+        <version>2.1</version>
+        <scope>provided</scope>
+      </dependency>
+
+
+
+    </dependencies>
+  </dependencyManagement>
+</project>

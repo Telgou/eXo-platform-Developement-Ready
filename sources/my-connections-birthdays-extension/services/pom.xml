@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <groupId>tn.gamcorp.samples</groupId>
+    <artifactId>custom-extension</artifactId>
+    <version>1.0.x-SNAPSHOT</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>my-connections-birthdays-extension-services</artifactId>
+  <name>my connections birthdays extension services</name>
+
+  <repositories>
+    <repository>
+      <id>eXo-pub-repo</id>
+      <name>eXoPlatform public repo</name>
+      <url>https://repository.exoplatform.org/public</url>
+    </repository>
+  </repositories>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.exoplatform.commons-exo</groupId>
+        <artifactId>commons-exo</artifactId>
+        <version>${org.exoplatform.commons-exo.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+
+
+      <dependency>
+        <groupId>javax.ws.rs</groupId>
+        <artifactId>javax.ws.rs-api</artifactId>
+        <version>2.1</version>
+        <scope>provided</scope>
+      </dependency>
+
+
+    </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <finalName>my-connections-birthdays-extension-services</finalName>
+  </build>
+</project>
