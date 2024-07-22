@@ -6,15 +6,14 @@ const webpackProductionConfig = require('./webpack.prod.js');
 const app = 'my-connections-birthday-webapp';
 
 // add the server path to your server location path
-const exoServerPath = "/mnt/work/exo/binaries/snapshots/plf-enterprise-tomcat-standalone-6.5.x-SNAPSHOT";
+const exoServerPath = "/exo-server";
 
 let config = merge(webpackProductionConfig, {
     mode: "development",
-output: {
+  output: {
     path: path.resolve(`${exoServerPath}/webapps/${app}/`)
-},
-devtool: 'inline-source-map'
+  },
+  devtool: 'inline-source-map'
 });
 
 module.exports = config;
-

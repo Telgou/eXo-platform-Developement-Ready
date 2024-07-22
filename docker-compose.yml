@@ -35,10 +35,10 @@ services:
       - exo_data:/srv/exo
       - exo_codec:/etc/exo/codec:rw
       - exo_logs:/var/log/exo
-    #  - $EXO_HOME/webapps/custom-extension-webapp.war:/opt/exo/webapps/custom-extension-webapp.war
-    #  - $EXO_HOME/webapps/vue-webpack-sample.war:/opt/exo/webapps/vue-webpack-sample.war
-      - $EXO_HOME/lib/my-connections-birthday-services.jar:/opt/exo/lib/my-connections-birthday-services.jar
-      - $EXO_HOME/webapps/my-connections-birthday-webapp.war:/opt/exo/webapps/my-connections-birthday-webapp.war
+      - D:\exo\Exo platform/webapps/custom-extension-webapp.war:/opt/exo/webapps/custom-extension-webapp.war
+      - D:\exo\Exo platform/webapps/vue-webpack-sample.war:/opt/exo/webapps/vue-webpack-sample.war
+      - D:\exo\Exo platform/lib/my-connections-birthday-services.jar:/opt/exo/lib/my-connections-birthday-services.jar
+      - D:\exo\Exo platform/webapps/my-connections-birthday-webapp.war:/opt/exo/webapps/my-connections-birthday-webapp.war
     depends_on:
       - mysql
       - mongo

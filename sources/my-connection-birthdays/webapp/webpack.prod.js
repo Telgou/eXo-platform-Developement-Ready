@@ -6,49 +6,49 @@ const { VueLoaderPlugin } = require('vue-loader')
 const app = 'my-connections-birthday-webapp';
 
 const config = {
-mode: 'production',
-context: path.resolve(__dirname, '.'),
-module: {
+  mode: 'production',
+  context: path.resolve(__dirname, '.'),
+  module: {
     rules: [
-    {
+      {
         test: /\.js$/,
         exclude: /node_modules/,
         use: [
-        'babel-loader',
+          'babel-loader',
         ]
-    },
-    {
+      },
+      {
         test: /\.vue$/,
         use: [
-        'vue-loader',
+          'vue-loader',
         ]
-    }
+      }
     ]
-},
-plugins: [
+  },
+  plugins: [
     new ESLintPlugin({
-    files: [
+      files: [
         './src/main/webapp/vue-app/*.js',
         './src/main/webapp/vue-app/*.vue',
         './src/main/webapp/vue-app/**/*.js',
         './src/main/webapp/vue-app/**/*.vue',
-    ],
+      ],
     }),
     new VueLoaderPlugin()
-],
-entry: {
+  ],
+  entry: {
     birthdayApp: './src/main/webapp/vue-app/main.js'
-},
-output: {
+  },
+  output: {
     path: path.join(__dirname, `target/${app}/`),
     filename: 'js/[name].bundle.js',
     libraryTarget: 'amd'
-},
-externals: {
+  },
+  externals: {
     vue: 'Vue',
     vuetify: 'Vuetify',
     jquery: '$',
-},
+  },
 };
 
 module.exports = config;

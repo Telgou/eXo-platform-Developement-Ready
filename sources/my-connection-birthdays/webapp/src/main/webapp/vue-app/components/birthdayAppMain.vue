@@ -4,3 +4,8 @@
     <birthday-connections-list birthday-items="" />
   </div>
 </template>
+export default {
+  data: () => ({
+    connectionsBirthdays : null,
+  }),
+};
