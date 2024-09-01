@@ -6,7 +6,7 @@ const webpackProductionConfig = require('./webpack.prod.js');
 const app = 'my-connections-birthday-webapp';
 
 // add the server path to your server location path
-const exoServerPath = "/exo-server";
+const exoServerPath = "D:/exo/Exo platform";
 
 let config = merge(webpackProductionConfig, {
     mode: "development",

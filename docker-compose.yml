@@ -11,7 +11,7 @@ services:
     links:
       - exo
   exo:
-    image: exoplatform/exo-community:6.5
+    image: exoplatform/exo:7.0.0-20240729_1
     environment:
       EXO_PROXY_VHOST: localhost
       EXO_PROXY_PORT: 80
@@ -29,16 +29,32 @@ services:
       EXO_MONGO_HOST: mongo
       EXO_MONGO_PORT: 27017
       EXO_MONGO_DB_NAME: chat
+      EXO_DEBUG_ENABLED: "true"
+      EXO_DEV: "true"
     ports:
       - "8080:8080"
+      - "8000:8000"
     volumes:
       - exo_data:/srv/exo
-      - exo_codec:/etc/exo/codec:rw
+      - "D:/exo/Exo platform/codeckey.txt:/etc/exo/codeckey.txt:rw"
       - exo_logs:/var/log/exo
-      - D:\exo\Exo platform/webapps/custom-extension-webapp.war:/opt/exo/webapps/custom-extension-webapp.war
-      - D:\exo\Exo platform/webapps/vue-webpack-sample.war:/opt/exo/webapps/vue-webpack-sample.war
-      - D:\exo\Exo platform/lib/my-connections-birthday-services.jar:/opt/exo/lib/my-connections-birthday-services.jar
-      - D:\exo\Exo platform/webapps/my-connections-birthday-webapp.war:/opt/exo/webapps/my-connections-birthday-webapp.war
+      - ./conf/exo.properties:/etc/exo/exo.properties
+      - "D:/exo/Exo platform/webapps/agenda:/opt/exo/webapps/agenda"
+      - D:/exo/Exo platform/lib/agenda-services.jar:/opt/exo/lib/agenda-services.jar
+   #   - D:/exo/Exo platform/webapps/agenda.war:/opt/exo/webapps/agenda.war
+   #   - D:/exo/Exo platform/lib/agenda-addon.zip:/opt/exo/lib/agenda-addon.zip
+
+
+
+
+      #  - "D:/exo/Exo platform/webapps/my-connections-birthday-webapp:/opt/exo/webapps/my-connections-birthday-webapp"
+      #  - D:\exo\Exo platform/lib/my-connections-birthday-services.jar:/opt/exo/lib/my-connections-birthday-services.jar
+
+
+      #- D:/exo/Exo\ platform/webapps/custom-extension-webapp.war:/opt/exo/webapps/custom-extension-webapp.war
+      #- D:/exo/Exo\ platform/webapps/vue-webpack-sample.war:/opt/exo/webapps/vue-webpack-sample.war
+     # - "D:/exo/Exo platform/lib/my-connections-birthday-services.jar:/opt/exo/lib/my-connections-birthday-services.jar"
+    #  - D:\exo\Exo platform/webapps/my-connections-birthday-webapp.war:/opt/exo/webapps/my-connections-birthday-webapp.war
     depends_on:
       - mysql
       - mongo

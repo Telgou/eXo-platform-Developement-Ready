@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Created-By: Maven WAR Plugin 3.3.2
+Build-Jdk-Spec: 17
+Date: 2024-07-23T14:41:23Z
+Implementation-Title: My Connections birthday - webapp
+Implementation-URL: https://projects.exoplatform.org/addons-exo-parent-p
+ om/my-connections-birthday-extension/my-connections-birthday-webapp
+Implementation-Vendor: eXo Platform SAS
+Implementation-Version: 1.0.x-SNAPSHOT
+SCM-Revision: a8d5965b4ca963856129f205b39906b2dbf1bd95
+SCM-URL: scm:git:git://github.com/exo-addons/addons-parent-pom.git/my-co
+ nnections-birthday-extension/my-connections-birthday-webapp
+Specification-Title: My Connections birthday - webapp
+Specification-Vendor: eXo Platform SAS
+Specification-Version: N/A.0
+

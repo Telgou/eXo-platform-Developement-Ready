@@ -1,0 +1,865 @@
+@import "./variables.less";
+
+.VuetifyApp {
+
+  .v-current-time.today {
+    height: 2px;
+    width: 100%;
+    background-color: #ea4335;
+    position: absolute;
+    pointer-events: none;
+
+    &::before {
+      content: '';
+      position: absolute;
+      background-color: #ea4335;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-top: -5px;
+      margin-left: -6.5px;
+    }
+  }
+
+  .agenda-calendar-filter-input {
+    width: 100%;
+
+    button {
+      margin-bottom: 5px;
+    }
+  }
+
+  .v-calendar-daily_head-day {
+    .v-calendar-daily_head-day-label > button {
+      width: 40px;
+      height: 40px;
+    }
+  }
+  .agenda-application {
+    .agenda-body {
+      height: ~"calc(100vh - 166px)";
+      max-height: ~"calc(100vh - 166px)";
+
+      .v-calendar {
+        min-height: ~"calc(100% - 64px)";
+        max-height: ~"calc(100% - 64px)";
+
+        .v-event {
+          border: 1px solid !important;
+        }
+      }
+    }
+
+    .pending-invitation-badge .v-badge__badge {
+      max-width: 20px;
+      max-height: 20px;
+      padding: 4px 0;
+      position: absolute;
+      top: -8px !important;
+      right: -12px !important;
+      left: auto !important;
+    }
+    .create-event-dialog {
+      overflow: hidden !important;
+    }
+    .agenda-filter-suggester {
+      > .v-input {
+        padding: 5px !important;
+      }
+    }
+    .agenda-calendar-settings-color {
+      i {
+        font-size: 24px;
+      }
+      label {
+        margin-left: 12px;
+      }
+    }
+    .settingsIcon {
+      margin-bottom: 3px;
+    }
+    .settingsIcon {
+      margin-bottom: 3px;
+    }
+  }
+
+  .event-form {
+    .v-calendar {
+      max-height: ~"calc(100vh - 231px)";
+    }
+    .v-stepper__content {
+      box-sizing: border-box;
+    }
+    .v-stepper__step {
+      padding-top: 16px !important;
+      padding-bottom: 16px !important;
+    }
+
+    .agenda-time-zone .v-input__slot {
+      background: white !important;
+    }
+
+    .space-suggester {
+      max-width: 270px;
+    }
+
+    .location-event-input {
+      width: 500px;
+    }
+    .webconference-event-input,.webconference-event-span {
+      width: 500px;
+    }
+    @media (max-width: @maxMobileWidth) {
+      .webconference-event-span {
+        max-width: ~"calc(100% - 36px)";
+      }
+
+    }
+    .max-width-fit {
+      max-width: 100% !important;
+    }
+
+    label {
+      cursor:default;
+    }
+
+    .description-event-textarea {
+      width: 500px;
+    }
+
+    .time-notification {
+      width: 70px;
+      min-height: 40px;
+    }
+
+    .add-notification-link {
+      text-decoration: underline;
+    }
+
+    .attach-file-link {
+      text-decoration: underline;
+    }
+
+    .notification-date-option {
+      min-height: 40px;
+    }
+
+    .event-form-body > * {
+      max-width: ~"calc(50% - 21px)";
+    }
+
+    .event-form-body-left > * {
+      min-height: 64px;
+    }
+
+    .v-stepper__items {
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    .v-input--switch {
+      .v-input__slot {
+        margin: auto !important;
+      }
+    }
+
+    .v-autocomplete.identitySuggester {
+      width: 290px;
+
+      &.identitySuggester {
+        margin-bottom: 0 !important;
+      }
+
+      .v-input__slot {
+        margin: auto !important;
+      }
+
+      .v-select__selections {
+        flex-wrap: nowrap;
+        white-space: nowrap;
+        overflow: hidden;
+        margin: auto;
+        display: flex !important;
+      }
+
+      input {
+        padding: 0;
+      }
+    }
+    .eventFormStepperDivider {
+      flex-grow: 0;
+      min-width: 120px;
+    }
+  }
+
+  .calendar-owners-filters {
+    label {
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      display: block !important;
+    }
+  }
+
+  .event-form-mobile {
+    max-height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    #eventTitle {
+      margin-bottom: 0;
+    }
+
+    .user-suggester {
+      min-width: 100%;
+      .v-autocomplete {
+        min-width: 100%;
+      }
+    }
+
+    .identitySuggester {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+      .v-input__slot {
+        margin: 0 !important;
+      }
+      .v-select__selections {
+        display: flex !important;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        padding:  ~'0 0 0 8px !important; /** orientation=lt */ ';
+        padding:  ~'0 8px 0 0 !important; /** orientation=rt */ ';
+      }
+      input {
+        padding: 2px 0 !important;
+      }
+    }
+
+    .datePickerComponent input {
+      padding: 0 !important;
+    }
+  }
+
+  .quick-add {
+    input, textarea {
+      max-width: ~"calc(100% - 64px)";
+    }
+    .webconference-event-span {
+      max-width: ~"calc(100% - 105px)";
+    }
+    .webconference-event-span-without-cross {
+      max-width: ~"calc(100% - 64px)";
+    }
+    #eventTitle {
+      min-width: ~"calc(100% - 20px)";
+      margin: 0 10px;
+    }
+    .v-autocomplete.identitySuggester.identitySuggester {
+      min-width: 100%;
+    }
+    .user-suggester {
+      max-width: ~"calc(100% - 59px)";
+    }
+  }
+
+  .datePickerComponent {
+    &::after {
+      display: none;
+    }
+    input {
+      margin: auto;
+    }
+  }
+
+  .datePickerText {
+    width: auto;
+    min-width: auto;
+    max-width: 50%;
+    padding: 5px;
+    text-align: center;
+  }
+
+  .customRecurrentEventDrawer {
+    .recurrenceDays {
+      .v-slide-group__prev, .v-slide-group__next {
+        display: none;
+      }
+      .v-chip {
+        padding: 0 10px;
+      }
+    }
+    .recurrenceUntil {
+      max-width: 100%;
+    }
+    input {
+      min-height: 40px;
+      max-width: 90px;
+      border: 1px solid @borderColor !important;
+      &[disabled] {
+        background-color: @disableBackground !important;
+      }
+    }
+    .col {
+      margin-top: auto;
+      margin-bottom: auto;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    .datePickerMenu {
+      .v-menu__content {
+        margin-left: -50px;
+      }
+    }
+  }
+
+  .agenda-application, .event-form {
+    [class^="uiIconArrow"] {
+      font-size: 12px !important;
+    }
+
+    .event-form-datetimes {
+      max-width: 290px;
+    }
+
+    .event-time-picker {
+      padding: 5px;
+    }
+
+    .period-title {
+      font-size: 1rem !important;
+    }
+    .recurrence-select {
+      padding: 0;
+
+      .v-input__control {
+        height: 40px;
+      }
+    }
+
+    .v-calendar {
+      .editable-event {
+        cursor: pointer;
+      }
+      .readonly-event {
+        cursor: default;
+        height: 100%;
+      }
+      .v-event-draggable {
+        height: 100%;
+      }
+      .v-event-timed, .v-event {
+        user-select: none;
+        -webkit-user-select: none;
+
+        .uiIcon.attendee-response {
+          margin-top: -1px;
+        }
+      }
+      .v-event-drag-bottom {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 4px;
+        height: 4px;
+        cursor: ns-resize;
+        &::after {
+          display: none;
+          position: absolute;
+          left: 50%;
+          height: 4px;
+          border-top: 1px solid white;
+          border-bottom: 1px solid white;
+          width: 16px;
+          margin-left: -8px;
+          opacity: 0.8;
+          content: '';
+        }
+        &:hover::after {
+          display: block;
+        }
+      }
+    }
+  }
+  /** Remote event **/
+  .remote-event {
+    border: 1px solid @primaryColor !important;
+    &.no-date-event {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .uiIconClock.uiIcon32x32:before {
+    font-size: 26px;
+    margin-left: 2px;
+    margin-right: 2px;
+    color: @darkGrey !important;
+  }
+
+  .reminder-time {
+    max-width: 58px;
+  }
+
+  .reminder-list-item {
+    max-height: 40px !important;
+    min-height: 40px !important;
+  }
+
+  .pending-invitation-item {
+    height: 64px;
+
+    .uiIcon32x32::before {
+      font-size: @sizeIcon32x32 !important;
+    }
+  }
+}
+
+.event-form-dates {
+  position: relative;
+}
+.select-date-pickers {
+  overflow: visible !important;
+  contain: initial !important;
+}
+
+.event-details {
+  max-height: 100%;
+
+  [class^="uiIcon"] {
+    height: 35px;
+  }
+
+  .event-details-header {
+    max-height: 100%;
+
+    > * {
+      max-width: 50%;
+    }
+    .event-title {
+      font-weight: bold;
+      display: inline-block;
+    }
+    .spaceAvatar > * {
+      max-width: 100%;
+    }
+  }
+  .uiIconRefresh.uiIcon32x32:before {
+    color: @darkGrey !important;
+  }
+
+  .text-wrap a {
+    word-break: break-word;
+  }
+
+  .event-details-body {
+    .event-details-body-right {
+      max-width: ~"calc(40% - 21px)";
+    }
+
+    .event-details-body-left {
+      max-width: ~"calc(60% - 21px)";
+    }
+    
+    .event-time {
+      .uiIconClock.uiIcon32x32:before {
+        font-size: 26px;
+        margin-left: 2px;
+        margin-right: 2px;
+        color: @darkGrey !important;
+      }
+    }
+
+    .agenda-hidden-connectors {
+      visibility: hidden;
+    }
+
+    .event-description {
+      span {
+        text-align: justify;
+        flex: 1 0 0;
+      }
+    }
+    .event-conference {
+      a {
+        max-width: ~"calc(50vw - 100px)" !important;
+        span {
+          display: inline !important;
+        }
+      }
+    }
+  }
+
+  .event-header-title  {
+    max-width: ~"calc(100% - 145px)";
+  }
+  .calendar-owner-link  {
+    max-width: 140px;
+    display: inline-block;
+    margin-top: auto;
+    padding-left: 4px;
+  }
+  .calendar-owner-link-parent {
+    max-width: 35% !important;
+  }
+
+  .spaceAvatar {
+    flex-grow: 1;
+    p {
+      color: @linkColor !important;
+      padding: 5px 0;
+    }
+  }
+
+  .remote-events-details {
+    max-width: 250px;
+    min-width: 250px;
+  }
+
+  .event-date-options-table {
+    border-right: 1px solid @borderColor !important;
+    border-bottom: 1px solid @borderColor !important;
+    border-left: 0 !important;
+    width: auto;
+    white-space: nowrap;
+    display: block;
+
+    caption {
+      border-bottom: 1px solid @borderColor !important;
+      border-right: 2px solid #fff;
+      box-sizing: border-box;
+      margin-right: -2px;
+    }
+    th, td {
+      -webkit-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+    }
+  }
+  .event-date-options-cell {
+    border-top: 0 !important;
+    border-right: 0 !important;
+    border-bottom: 1px solid @borderColor !important;
+    border-left: 1px solid @borderColor !important;
+  }
+  .event-date-options-voter-cell {
+    border-top: 0 !important;
+    border-right: 0 !important;
+    border-bottom: 0 !important;
+    border-left: 1px solid @borderColor !important;
+
+    &.disabled {
+      background-color: @inputDisabledBackground !important;
+      .v-card {
+        background-color: @inputDisabledBackground !important;
+      }
+    }
+    &.no-vote {
+      border-top: 1px solid @borderColor !important;
+    }
+  }
+  .event-date-poll-vote-choice {
+    &, & > div {
+      height: 24px;
+    }
+
+    .event-conflicted {
+      top: 10px;
+      right: 18%;
+    }
+  }
+  .event-details-body-divider {
+    height: 100% !important;
+  }
+}
+
+.event-poll-details {
+  overflow: auto;
+
+  .date-poll-participant p {
+    max-width: 200px;
+  }
+
+  [class^="uiIcon"] {
+    height: inherit;
+  }
+
+  .event-checkbox-vote {
+    margin-top: 1px;
+    margin-left: 5px;
+    i {
+      font-size: 22px !important;
+    }
+  }
+
+  .event-poll-details-close {
+    right: 0 !important;
+  }
+
+  .event-date-option-header-selected {
+    background-color: @primaryColor !important;
+
+    .v-card {
+      background-color: @primaryColor !important;
+    }
+
+    .v-btn {
+      position: absolute;
+      top: 3px !important;
+      right: 3px !important;
+
+      .fa-trophy:before {
+        font-family: "PLF-FONT-ICONS" !important;
+        content: "\ebdb" !important;
+        font-size: 18px;
+      }
+    }
+  }
+
+  .event-date-option-cell-selected {
+    background-color: #d7e3f2 !important;
+
+    .v-card {
+      background-color: #d7e3f2 !important;
+    }
+  }
+
+  .hide-edit-vote {
+    visibility: hidden;
+  }
+}
+
+.v-calendar-daily__head {
+  margin-right:  ~'0 !important; /** orientation=rt */ ';
+  margin-left: ~'14px !important; /** orientation=rt */ ';
+}
+
+.agenda-date-poll-details-mobile {
+  .date-poll-voters-avatar {
+    position: relative;
+    flex-basis: auto;
+
+    .notDisplayedIdentitiesOverlay {
+      right: 5px;
+      .notDisplayedIdentities {
+        line-height: 26px;
+      }
+    }
+
+    a {
+      padding-left: 5px;
+    }
+  }
+}
+
+.agenda-mobile-header {
+  background-color: #FFFFFF;
+
+  .agenda-header-date-picker {
+    input {
+      margin: auto;
+      padding-right: 0 !important;
+      padding-left: 0 !important;
+      max-width: 70% !important;
+      &:after {
+        font-family: "PLF-FONT-ICONS";
+        content: "\e75a";
+        color: @greyColorLighten1Default;
+        font-size: 16px;
+      }
+    }
+  }
+  .datePickerMenu {
+    left: 0 !important;
+    position: fixed;
+  }
+}
+
+.agenda-mobile-header {
+  z-index: 999;
+  position: relative;
+}
+.agenda-timeline {
+
+  .event-timeline-detail::after {
+    min-height: auto;
+  }
+  .agenda-timeline-month {
+    * {
+      max-width: 100%;
+    }
+    .agenda-timeline-month-title {
+      min-height: auto;
+    }
+  }
+  .event-timeline-day {
+    min-width: 36px;
+    width: 36px;
+    max-width: 36px;
+    margin-top: 7px!important;
+    margin-right: 8px!important;
+    white-space: pre-line;
+  }
+  .event-timeline-detail-content {
+    min-width: 100%;
+  }
+}
+
+.event-attendees {
+  width: 250px;
+  max-width: 250px;
+
+  .attendee {
+    a {
+      flex-grow: 1;
+
+      p {
+        max-width: 192px;
+        color: @linkColor !important;
+        padding: 5px 0;
+      }
+    }
+  }
+}
+
+.attendee-response::before {
+  font-family: "PLF-FONT-ICONS";
+  font-size: 16px;
+}
+
+.attendee-response-accepted::before {
+  content: '\e9c7';
+  color: @successColor;
+}
+
+.attendee-response-declined::before {
+  content: "\e9d0";
+  color: @errorColor;
+}
+
+.attendee-response-tentative::before {
+  font-family: "PLF-FONT-ICONS";
+  content: '\ea0b';
+  color: @infoColor;
+}
+
+.v-tabs.text-capitalize .v-tab {
+  text-transform: capitalize !important;
+}
+
+.v-dialog--fullscreen {
+  overflow: hidden !important;
+}
+
+.darkGreyIcon {
+  color: @darkGrey !important;
+}
+
+.agenda-empty-timeline {
+  .title {
+    font-size: 22px;
+  }
+  .sub-title-1 {
+    color: #6d7d9821;
+  }
+}
+.uiIconCalendarEmpty {
+  color: #6d7d9821;
+  font-size: @sizeIcon64x64; 
+
+  &::before {
+    font-family: "PLF-FONT-ICONS";
+    content: "\e9bd";
+    font-style: normal; 
+    font-weight: normal; 
+  }
+}
+
+.agenda-toolbar-left {
+  .iconBadge .uiIconClock::before {
+    font-size: 26px!important;
+  }
+}
+
+.agendaConnectorsDrawer {
+  .noEnabledConnectors {
+    .uiIconCalRemoteCalendar {
+      font-size: 52px;
+      height: 52px;
+    }
+  }
+}
+
+#AgendaContainer {
+  &, .NormalContainerBlock, .VIEW-CONTAINER, .UIIntermediateContainer, .UIRowContainer, .UIRowContainer > div, .PORTLET-FRAGMENT, .VuetifyApp, .v-application, .v-application--wrap, .v-main {
+    display: flex;
+    min-height: 100%;
+    flex: 1 1 auto;
+    max-width: 100%;
+  }
+  .agenda-timeline {
+    display: flex;
+    flex-direction: column;
+    min-height: ~"calc(100% - 53px)";
+    flex: 1 1 auto;
+    max-width: 100%;
+
+    .agenda-empty-timeline {
+      padding-bottom: 20px;
+    }
+  }
+}
+
+.attendee-vote-confirmed::before {
+  font-family: "PLF-FONT-ICONS";
+  content: '\e9c7';
+  color: @borderColor;
+}
+
+.attendee-vote-tentative::before {
+  font-family: "PLF-FONT-ICONS";
+  content: '\e9c7';
+  color: @borderColor;
+}
+
+.attendee-vote-needs_action::before {
+  font-family: "PLF-FONT-ICONS";
+  content: '\e76b';
+  color: @borderColor;
+}
+
+.agendaSearchCard .caption {
+  max-height: 82px !important;
+}
+
+@media (max-width: @maxMobileWidth) {
+  .VuetifyApp {
+    .event-details {
+      .event-details-body {
+        .event-details-body-right, .event-details-body-left {
+          max-width: 100%;
+          flex-grow: 0 !important;
+        }
+      }
+      .event-conference {
+        a {
+          max-width: ~"calc(100vw - 100px) !important";
+        }
+      }
+      .event-date-poll-vote-choice .event-conflicted {
+        top: 0;
+        right: 0;
+      }
+    }
+
+    .event-form {
+      .event-form-body > * {
+        max-width: 100%;
+      }
+      .v-autocomplete {
+        width: 100%;
+      }
+    }
+  }
+
+}
