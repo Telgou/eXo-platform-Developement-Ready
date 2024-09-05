@@ -1,7 +1,7 @@
 <template>
   <div class="event-details-body overflow-auto flex-grow-1 d-flex flex-column flex-md-row pa-4 mt-5">
     <div class="flex-grow-1 flex-shrink-0 event-details-body-left " :class="{ 'd-flex' : !isMobile }">
-      <div class="mx-auto">
+      <div :class="{'mx-auto' : isMobile}">
         <div class="event-date align-center d-flex pb-5">
           <i class="uiIconDatePicker darkGreyIcon uiIcon32x32 pe-5"></i>
           <div class="d-inline-flex">
@@ -104,7 +104,7 @@
         </div>
         <div v-if="event.description" class="event-description d-flex flex-grow-0 flex-shrink-1 pb-5">
           <i class="uiIconDescription darkGreyIcon uiIcon32x32 pe-5"></i>
-          <span v-autolinker:[autolinkerArgs]="event.description" class="mt-1 align-self-center text-wrap text-left text-break"></span>
+          <span v-sanitized-html="event.description" class="mt-1 me-4 align-self-center text-wrap text-left text-break rich-editor-content"></span>
         </div>
         <div
           v-if="event.attachments && event.attachments.length !== 0"
@@ -122,7 +122,33 @@
       </div>
     </div>
     <div class="flex-grow-0 mx-5 d-none d-md-block">
+      <v-divider vertical class="event-details-body-divider" />
     </div>
+    <div class="flex-grow-1 flex-shrink-0 d-flex event-details-body-right">
+      <div class="mr-1 width-full" >
+        <agenda-event-attendees
+          ref="agendaAttendees"
+          :event="event" />
+        <div :class="{ 'd-flex flex-row-reverse': enabledconnectors}" class="justify-content-left">
+          <agenda-ics
+            v-if="addToMyAgenda"
+            :settings="settings"
+            :event="event"
+            :connectors="enabledconnectors"/>
+          <agenda-connector-contemporary-events
+            v-if="enabledconnectors"
+            :settings="settings"
+            :event="event"
+            :connectors="connectors"
+            :class="!isAcceptedEvent && 'agenda-hidden-connectors'"
+            class="mt-4 mr-auto" />
+        </div>
+      </div>
+    </div>
+    <agenda-event-reminder-drawer
+      v-if="canAddReminders"
+      ref="reminders"
+      :event="event" />
   </div>
 </template>
 
@@ -148,6 +174,7 @@ export default {
   },
   data() {
     return {
+      addToMyAgenda: false,
       fullDateFormat: {
         year: 'numeric',
         month: 'short',
@@ -165,8 +192,16 @@ export default {
     };
   },
   computed: {
+  /*  bodyElement() {
+      return {
+        template: this.ExtendedDomPurify.purify(`<div>${this.body}</div>`) || '',
+      };
+    },*/
     connectedConnector() {
       return this.connectors && this.connectors.find(connector => connector.connected);
+    },
+    enabledconnectors() {
+      return this.connectors.find(connector => connector.enabled);
     },
     isMobile() {
       return this.$vuetify.breakpoint.name === 'xs' || this.$vuetify.breakpoint.name === 'sm';
@@ -268,12 +303,13 @@ export default {
     },
   },
   created() {
+    this.$featureService.isFeatureEnabled('addToMyAgenda').then(enabled => {this.addToMyAgenda = enabled;});
     this.timeZoneName = this.$agendaUtils.getTimeZoneNameFromTimeZoneId(this.$agendaUtils.USER_TIMEZONE_ID);
   },
   methods: {
     closeDialog() {
       this.$emit('close');
     },
-  }
+  },
 };
 </script>

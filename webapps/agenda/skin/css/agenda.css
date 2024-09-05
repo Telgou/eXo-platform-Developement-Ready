@@ -434,9 +434,11 @@
 .event-details .text-wrap a {
   word-break: break-word;
 }
-.event-details .event-details-body .event-details-body-right,
-.event-details .event-details-body .event-details-body-left {
-  max-width: calc(50% - 21px);
+.event-details-body-left {
+  max-width: calc(100% - 463px);
+}
+.event-details-body-right{
+  max-width: 420px !important;
 }
 .event-details .event-details-body .event-time .uiIconClock.uiIcon32x32:before {
   font-size: 26px;
@@ -477,7 +479,7 @@
   padding: 5px 0;
 }
 .event-details .remote-events-details {
-  max-width: 250px;
+  max-width: 100%;
   min-width: 250px;
 }
 .event-details .event-date-options-table {
@@ -742,6 +744,12 @@
 .agendaSearchCard .caption {
   max-height: 82px !important;
 }
+@media (min-width: 599.98px) {
+  .VuetifyApp .event-details .event-details-body .event-details-body-right {
+    min-width: 420px !important;
+  }
+}
+
 @media (max-width: 599.98px) {
   .VuetifyApp .event-details .event-details-body .event-details-body-right,
   .VuetifyApp .event-details .event-details-body .event-details-body-left {

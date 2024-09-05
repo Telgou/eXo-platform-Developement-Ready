@@ -3,6 +3,26 @@
     v-if="event"
     flat
     class="event-details d-flex flex-column">
+    <agenda-event-details-mobile-toolbar
+      v-if="isMobile && !isDatePoll"
+      :event="event"
+      :connected-connector="connectedConnector"
+      @close="$emit('close')"
+      @edit="$root.$emit('agenda-event-form', event)"
+      @delete="deleteConfirmDialog" />
+    <agenda-date-poll-details-mobile-toolbar
+      v-else-if="isMobile && isDatePoll"
+      :event="event"
+      @close="$emit('close')"
+      @edit="$root.$emit('agenda-event-form', event)" />
+    <agenda-event-details-toolbar
+      v-else
+      :event="event"
+      :connected-connector="connectedConnector"
+      :is-attendee="isAttendee"
+      @close="$emit('close')"
+      @edit="$root.$emit('agenda-event-form', event)"
+      @delete="deleteConfirmDialog" />
 
     <slot name="top-bar-message"></slot>
 

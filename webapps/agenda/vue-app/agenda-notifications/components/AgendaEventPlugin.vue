@@ -80,7 +80,6 @@ export default {
     message() {
       const eventTitle = this.notification?.parameters?.eventTitle;
       const agendaName = this.spaceName;
-      const participantName = this.;
       let key = 'Notification.agenda.event.';
       if (this.notification?.parameters?.EVENT_MODIFICATION_TYPE === 'ADDED') {
         key = key.concat('created');

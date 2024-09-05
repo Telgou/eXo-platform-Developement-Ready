@@ -36,11 +36,11 @@ services:
       - "8000:8000"
     volumes:
       - exo_data:/srv/exo
-      - "D:/exo/Exo platform/codeckey.txt:/etc/exo/codeckey.txt:rw"
+      - "F:/Github/Exo-platform/codeckey.txt:/etc/exo/codeckey.txt:rw"
       - exo_logs:/var/log/exo
       - ./conf/exo.properties:/etc/exo/exo.properties
-      - "D:/exo/Exo platform/webapps/agenda:/opt/exo/webapps/agenda"
-      - D:/exo/Exo platform/lib/agenda-services.jar:/opt/exo/lib/agenda-services.jar
+      - "F:/Github/Exo-platform/webapps/agenda:/opt/exo/webapps/agenda"
+      - F:/Github/Exo-platform/lib/agenda-services.jar:/opt/exo/lib/agenda-services.jar
    #   - D:/exo/Exo platform/webapps/agenda.war:/opt/exo/webapps/agenda.war
    #   - D:/exo/Exo platform/lib/agenda-addon.zip:/opt/exo/lib/agenda-addon.zip
 
